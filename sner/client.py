@@ -12,8 +12,9 @@ class Ner(object):
     def get_entities(self, text):
         with self.__connect() as sock:
             text = text.strip() + '\n'
+            # msg_len = text.encode('utf-8')
             sock.send(text.encode('utf-8'))
-            r = sock.recv(1024).decode('utf-8')
+            r = sock.recv(10 * len(text)).decode('utf-8')
         return self.__get_entities(r)
 
     @contextmanager
@@ -26,9 +27,10 @@ class Ner(object):
             try:
                 sock.shutdown(socket.SHUT_RDWR)
             except Exception as e:
-                print(sys.exc_info()[0])
+                pass
             finally:
                 sock.close()
 
     def __get_entities(self, text):
-        return [tuple(s.split('/')) for s in text.strip().split(' ')]
+        return [tuple(s.split('/'))
+                for s in text.strip().split(' ') if len(s.split('/')) == 2]
