@@ -1,5 +1,12 @@
 # sner
-The Python interface to the Stanford Named Entity Recognizer Server.
+The Python interface to the Stanford NER Server.
+
+# Stanford NER Project
+
+* [Home Page](https://nlp.stanford.edu/software/CRF-NER.shtml)
+
+* [Ner Server](https://nlp.stanford.edu/software/crf-faq.shtml#cc)
+
 # Installation
 ```bash
 pip install sner
@@ -10,13 +17,13 @@ or
 python setup install
 ```
 
-# start
+# Start
 
 run these commands to start java server
 
 ```bash
 cd your_stanford_ner_dir
-java  -mx2g -cp -Djava.ext.dirs=./lib -cp stanford-ner.jar edu.stanford.nlp.ie.NERServer -port 9199 -loadClassifier ./classifiers/english.all.3class.distsim.crf.ser.gz
+java -Djava.ext.dirs=./lib -cp stanford-ner.jar edu.stanford.nlp.ie.NERServer -port 9199 -loadClassifier ./classifiers/english.all.3class.distsim.crf.ser.gz
 ```
 Then the sner can worked like this
 
@@ -41,7 +48,3 @@ result is
  ('.', 'O')]
 
 ```
-
-
-
-
