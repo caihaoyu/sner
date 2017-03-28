@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 import sys
 import os
 
-VERSION = '0.0.2'
+VERSION = '0.2'
 DESCRIPTION = ("The Python interface to the Stanford "
                "Named Entity Recognizer Server.")
 
@@ -14,7 +14,7 @@ setup(
     name='sner',  # 文件名
     version=VERSION,  # 版本(每次更新上传Pypi需要修改)
     description=DESCRIPTION,
-    long_description=long_description,  # 放README.md文件,方便在Pypi页展示
+    long_description=long_description,  # 放README.rst文件,方便在Pypi页展示
     keywords='python ner nlp stanford Named Entity Recognizer',  # 关键字
     author='caihaoyu',  # 用户名
     author_email='chywj7@gmail.com',  # 邮箱
@@ -29,6 +29,7 @@ setup(
         'Topic :: Software Development :: Build Tools',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6'
     ],
 )

@@ -1,6 +1,5 @@
 # coding:utf-8
 import socket
-import sys
 from contextlib import contextmanager
 
 
@@ -14,7 +13,7 @@ class Ner(object):
             text = text.strip() + '\n'
             # msg_len = text.encode('utf-8')
             sock.send(text.encode('utf-8'))
-            r = sock.recv(10 * len(text)).decode('utf-8')
+            r = self.__get_recv(sock)
         return self.__get_entities(r)
 
     @contextmanager
@@ -34,3 +33,12 @@ class Ner(object):
     def __get_entities(self, text):
         return [tuple(s.split('/'))
                 for s in text.strip().split(' ') if len(s.split('/')) == 2]
+
+    def __get_recv(self, sock):
+        buffers = b''
+        while True:
+            data = sock.recv(4096)
+            if not data:
+                break
+            buffers += data
+        return buffers.decode('utf-8')
