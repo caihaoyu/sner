@@ -1,6 +1,10 @@
 # sner
 The Python interface to the Stanford NER Server.
 
+[![PyPI version](https://badge.fury.io/py/sner.svg)](https://badge.fury.io/py/sner)
+[![PyPI](https://img.shields.io/pypi/pyversions/sner.svg)](https://badge.fury.io/py/sner)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/caihaoyu/sner/master/LICENSE)
+
 # Stanford NER Project
 
 * [Home Page](https://nlp.stanford.edu/software/CRF-NER.shtml)
