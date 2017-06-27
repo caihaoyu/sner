@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 import sys
 import os
 
-VERSION = '0.2'
+VERSION = '0.2.1'
 DESCRIPTION = ("The Python interface to the Stanford "
                "Named Entity Recognizer Server.")
 
