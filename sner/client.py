@@ -31,8 +31,8 @@ class Ner(object):
                 sock.close()
 
     def __get_entities(self, text):
-        return [tuple(s.split('/'))
-                for s in text.strip().split(' ') if len(s.split('/')) == 2]
+        return [tuple(s.rsplit('/', 1))
+                for s in text.strip().split(' ') if len(s.rsplit('/', 1)) == 2]
 
     def __get_recv(self, sock):
         buffers = b''
