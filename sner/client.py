@@ -8,7 +8,7 @@ class BaseClient(object):
     def __init__(self, host, port):
         self.server_address = (host, port)
 
-    def get_entities(self, text):
+    def tag(self, text):
         with self.__connect() as sock:
             text = text.strip() + '\n'
             # msg_len = text.encode('utf-8')
