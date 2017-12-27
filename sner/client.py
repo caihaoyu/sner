@@ -44,12 +44,10 @@ class BaseClient(object):
 
 class NERClient(BaseClient):
     def split_response_text(self, text):
-        print('POS')
         return [tuple(s.rsplit('/', 1))
                 for s in text.strip().split(' ') if len(s.rsplit('/', 1)) == 2]
 
 class POSClient(BaseClient):
     def split_response_text(self, text):
-        print('POS ' + text)
         return [tuple(s.rsplit('_', 1))
                 for s in text.strip().split(' ') if len(s.rsplit('_', 1)) == 2]
