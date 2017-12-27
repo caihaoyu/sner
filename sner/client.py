@@ -3,7 +3,7 @@ import socket
 from contextlib import contextmanager
 
 
-class Ner(object):
+class BaseClient(object):
 
     def __init__(self, host, port):
         self.server_address = (host, port)
@@ -14,7 +14,7 @@ class Ner(object):
             # msg_len = text.encode('utf-8')
             sock.send(text.encode('utf-8'))
             r = self.__get_recv(sock)
-        return self.__get_entities(r)
+        return self.split_response_text(r)
 
     @contextmanager
     def __connect(self):
@@ -30,9 +30,8 @@ class Ner(object):
             finally:
                 sock.close()
 
-    def __get_entities(self, text):
-        return [tuple(s.rsplit('/', 1))
-                for s in text.strip().split(' ') if len(s.rsplit('/', 1)) == 2]
+    def split_response_text(self, text):
+        return text
 
     def __get_recv(self, sock):
         buffers = b''
@@ -42,3 +41,15 @@ class Ner(object):
                 break
             buffers += data
         return buffers.decode('utf-8')
+
+class NERClient(BaseClient):
+    def split_response_text(self, text):
+        print('POS')
+        return [tuple(s.rsplit('/', 1))
+                for s in text.strip().split(' ') if len(s.rsplit('/', 1)) == 2]
+
+class POSClient(BaseClient):
+    def split_response_text(self, text):
+        print('POS ' + text)
+        return [tuple(s.rsplit('_', 1))
+                for s in text.strip().split(' ') if len(s.rsplit('_', 1)) == 2]
