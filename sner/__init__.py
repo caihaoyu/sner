@@ -1,6 +1,6 @@
-from .client import NERClient, POSClient
+from .client import Ner, POSClient
 
 __all__ = [
-    'NERClient',
+    'Ner',
     'POSClient'
 ]

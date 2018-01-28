@@ -36,11 +36,12 @@ java -Djava.ext.dirs=./lib -cp stanford-ner.jar edu.stanford.nlp.ie.NERServer -p
 Use the following in Python to access the NER server
 
 ```python
-from sner import NERClient
+from sner import Ner
 
 test_string = "Alice went to the Museum of Natural History."
-tagger = NERClient(host='localhost',port=9199)
-print(tagger.tag(test_string))
+tagger = Ner(host='localhost',port=9199)
+print(tagger.get_entities(test_string))
+
 ```
 The following results are expected
 
