@@ -42,12 +42,19 @@ class BaseClient(object):
             buffers += data
         return buffers.decode('utf-8')
 
-class NERClient(BaseClient):
+
+class Ner(BaseClient):
+
     def split_response_text(self, text):
         return [tuple(s.rsplit('/', 1))
                 for s in text.strip().split(' ') if len(s.rsplit('/', 1)) == 2]
 
+    def get_entities(self, text):
+        return self.tag(text)
+
+
 class POSClient(BaseClient):
+
     def split_response_text(self, text):
         return [tuple(s.rsplit('_', 1))
                 for s in text.strip().split(' ') if len(s.rsplit('_', 1)) == 2]
