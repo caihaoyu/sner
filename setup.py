@@ -1,10 +1,10 @@
 from setuptools import setup
 
-VERSION = '0.2.3'
+VERSION = '0.2.4'
 DESCRIPTION = ("The Python interface to the Stanford "
                "Named Entity Recognizer Server.")
 
-with open('README.rst') as f:
+with open('README.md') as f:
     long_description = f.read()
 
 
@@ -28,6 +28,7 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6'
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7'
     ],
 )
