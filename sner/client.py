@@ -46,8 +46,11 @@ class BaseClient(object):
 class Ner(BaseClient):
 
     def split_response_text(self, text):
-        return [tuple(s.rsplit('/', 1))
-                for s in text.strip().split(' ') if len(s.rsplit('/', 1)) == 2]
+        return [
+            tuple(s.rsplit('/', 1))
+            for s in text.replace('\n', '').strip().split(' ')
+            if len(s.rsplit('/', 1)) == 2
+        ]
 
     def get_entities(self, text):
         return self.tag(text)
@@ -56,5 +59,8 @@ class Ner(BaseClient):
 class POSClient(BaseClient):
 
     def split_response_text(self, text):
-        return [tuple(s.rsplit('_', 1))
-                for s in text.strip().split(' ') if len(s.rsplit('_', 1)) == 2]
+        return [
+            tuple(s.rsplit('_', 1))
+            for s in text.replace('\n', '').strip().split(' ')
+            if len(s.rsplit('_', 1)) == 2
+        ]
