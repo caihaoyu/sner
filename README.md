@@ -2,7 +2,6 @@
 Python wrapper around the Stanford Named Entity Recognizer (NER) Server and the Part-Of-Speech (POS) Tagger Server.
 
 [![PyPI version](https://badge.fury.io/py/sner.svg)](https://badge.fury.io/py/sner)
-[![PyPI](https://img.shields.io/pypi/pyversions/sner.svg)](https://badge.fury.io/py/sner)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/caihaoyu/sner/master/LICENSE)
 
 # Stanford Named Entity Recognizer Project
